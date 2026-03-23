@@ -1,0 +1,19 @@
+
+.movie-container{
+
+    margin: 0 20px;
+    
+}
+
+.movie-container h2{
+
+    text-align: left;
+    
+}
+
+.movie-list{
+
+    display: flex;
+    flex-direction: row;
+    
+}

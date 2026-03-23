@@ -1,0 +1,17 @@
+
+.featured-container{
+
+margin: 0 40px;
+display: flex;
+flex-direction: row;
+
+}
+
+.featured-film{
+
+    background-color: rgb(192, 220, 244);
+    padding: 120px 240px;
+    margin: 20px;
+
+}
+

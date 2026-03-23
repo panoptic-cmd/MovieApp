@@ -1,0 +1,22 @@
+pages:
+-welcome;
+-home1;
+-home2;
+-details;
+
+components:
+home1: 
+-navbar:
+     - searchbar;
+     - userCard;
+     - menuicon;
+
+-teaser:
+     - teasercard:
+            - oneStarRating;
+            - playButton;
+     - slideBar;
+
+-Mylist section & Recommended section:
+    - movieCard;
+    - starsComponent;
