@@ -12,5 +12,7 @@
 
 body {
   margin: 0;
+  background-color: rgba(67, 27, 67, 0.937);
+  color: rgb(143, 139, 139);
 }
 

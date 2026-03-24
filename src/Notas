@@ -5,7 +5,7 @@ pages:
 -details;
 
 components:
-home1: 
+home1.   -    FILMS/TV: 
 -navbar:
      - searchbar;
      - userCard;

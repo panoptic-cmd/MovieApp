@@ -1,9 +1,10 @@
 
 .navbar{
 
-    background-color: green;
+    
     display: flex;
    justify-content: space-between;
+   border: 8px solid green;
    
    padding: 1.75rem;
    
@@ -25,8 +26,8 @@ align-items: center;
 }
 
 .searchbar{
-background-color: yellow;
-padding: 1rem;
 
+padding: 1rem;
+border: 6px solid red;
 align-items: center;
 }

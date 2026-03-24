@@ -1,3 +1,5 @@
+
+
 function SearchIcon({ size = 24 }) {
   return (
     <svg

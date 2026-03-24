@@ -10,23 +10,23 @@ function MenuIcon({size = 24}) {
       <path
         d="M98.3334 59H49.1667"
         stroke="#163300"
-        stroke-width="8.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="8.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M98.3334 24.5833H19.6667"
         stroke="#163300"
-        stroke-width="8.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="8.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M98.3334 93.4167H19.6667"
         stroke="#163300"
-        stroke-width="8.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="8.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

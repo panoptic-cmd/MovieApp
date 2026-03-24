@@ -26,5 +26,6 @@
   justify-content: center;
   pointer-events: none; 
   z-index: 1; 
-  fill: #9e9ea7;
+  
+  stroke: black;
 }
