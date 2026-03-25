@@ -5,7 +5,7 @@ pages:
 -details;
 
 components:
-home1.   -    FILMS/TV: 
+home1.   -    FILMS/TV: 2 rotas
 -navbar:
      - searchbar;
      - userCard;
@@ -20,3 +20,7 @@ home1.   -    FILMS/TV:
 -Mylist section & Recommended section:
     - movieCard;
     - starsComponent;
+
+
+
+    

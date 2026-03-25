@@ -1,6 +1,6 @@
-export type IMovies = IMovie[];
+// export type IMovies = IMovie[];
 
-export interface IMovie{
+export type IMovie = {
 
 adult: boolean;
 backdrop_path: string;

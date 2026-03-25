@@ -1,12 +1,15 @@
 import MovieCard from "../../components/MovieCard/MovieCard";
 import "./MyList.css";
 import { useEffect, useState } from "react";
+import type {IMovie} from "../../types/MovieType"
 
 function MyList() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<IMovie[]>([]);
+
+  // console.log("useState:_________", movies);
 
   useEffect(() => {
-    const url = "https://api.themoviedb.org/3/movie/now_playing";
+    const url = "https://api.themoviedb.org/3/movie/popular";
     const options = {
       method: "GET",
       headers: {
@@ -18,7 +21,7 @@ function MyList() {
     const fetchMovies = async () => {
       const response = await fetch(url, options);
       const newMovies = await response.json();
-      console.log("newMovies:-----------", newMovies);
+      console.log("fetch:--------", newMovies);
       setMovies(newMovies);
     };
 
@@ -27,6 +30,19 @@ function MyList() {
 
     fetchMovies();
   }, []);
+
+
+//   const movieEntries = Object.entries(movies);
+// console.log("object.entries-movies:", movieEntries[2]);
+
+// const movieResults = Object.values(movieEntries);
+// console.log("object.values-movies:", movieResults);
+
+
+
+
+
+
   return (
     <div>
       <div className="movie-container">
