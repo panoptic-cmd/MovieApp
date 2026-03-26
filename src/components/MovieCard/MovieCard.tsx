@@ -1,21 +1,20 @@
 import "../MovieCard/MovieCard.css";
 
-function MovieCard() {
+interface IMovieCardProps {
+  
+  title: string;
+  rating: number;
+  image: string;
+}
+function MovieCard({  title, rating, image }: IMovieCardProps) {
   return (
-   
-
-   
-      <div className="movie-list">
-        <div className="movie-card">
-            <img src="https://www.mockofun.com/wp-content/uploads/2019/10/movie-poster-credits-178.jpg" alt="movie image" />
-            <section>
-                <span>Movie1</span>
-                <div>rating</div>
-            </section>
-            </div>
-        
+    <div>
+      <div className="movieCard-container">
+        <img src={`https://image.tmdb.org/t/p/w300${image}`} alt={title} />
+        <span>{title} </span>
+        <span> {rating}</span>
       </div>
- 
+    </div>
   );
 }
 

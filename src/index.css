@@ -12,7 +12,13 @@
 
 body {
   margin: 0;
-  background-color: rgba(67, 27, 67, 0.937);
-  color: rgb(143, 139, 139);
+  background-color: #141414;
+  color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px; /* Dá um aspeto mais moderno/compacto */
+}

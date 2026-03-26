@@ -1,10 +1,11 @@
 // export type IMovies = IMovie[];
 
-export type IMovie = {
+
+interface IMovie {
 
 adult: boolean;
 backdrop_path: string;
-genre_ids: [number];
+genre_ids: number[];
 id: number;
 original_language: string;
 original_title: string;
@@ -16,6 +17,19 @@ title: string;
 video: boolean;
 vote_average: number;
 vote_count: number;
+
+
+}
+
+
+
+export type IApiResponse = {
+
+
+page: number;
+results: IMovie[];
+total_pages: number;
+total_results: number;
 
 
 }

@@ -1,19 +1,16 @@
-
-.movie-container{
-
-    margin: 0 20px;
-    
+.movie-popular-container h2 {
+  color: #fff;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
 }
 
-.movie-container h2{
-
-    text-align: left;
-    
-}
-
-.movie-list{
-
-    display: flex;
-    flex-direction: row;
-    
+/* Esta é a div que envolve o seu .map */
+.movie-list-grid {
+  display: grid;
+  /* Cria colunas automáticas com mínimo de 200px */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #141414; /* Fundo escuro estilo Netflix */
 }

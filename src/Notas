@@ -20,7 +20,43 @@ home1.   -    FILMS/TV: 2 rotas
 -Mylist section & Recommended section:
     - movieCard;
     - starsComponent;
+    - scrollbar component;
+
+
+<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
+
+-Página de listagem de filmes (/movies)
+-Página de listagem de séries (/tv)
+-Página de detalhes de filme (/movie/:id)
+-Página de detalhes de série (/tv/:id)
 
 
 
-    
+Na página de detalhes deve mostrar:
+Informação principal:
+
+https://api.themoviedb.org/3/movie/{movie_id}
+
+- Elenco com fotos e nomes:
+
+elenco:
+
+"https://api.themoviedb.org/3/movie/875828/credits"
+
+fotos:
+
+https://api.themoviedb.org/3/person/{person_id}/images
+2037 - cilian murphy
+
+https://image.tmdb.org/t/p/w500/{1E5baAaEse26fej7uHcjOgEE2t2.jpg}
+
+
+
+- Equipa técnica com funções:
+
+"https://api.themoviedb.org/3/movie/875828/credits"
+
+
+
+
+

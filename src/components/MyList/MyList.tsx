@@ -1,12 +1,12 @@
 import MovieCard from "../../components/MovieCard/MovieCard";
 import "./MyList.css";
 import { useEffect, useState } from "react";
-import type {IMovie} from "../../types/MovieType"
+import type { IApiResponse } from "../../types/MovieType";
 
 function MyList() {
-  const [movies, setMovies] = useState<IMovie[]>([]);
+  const [movies, setMovies] = useState<IApiResponse>();
 
-  // console.log("useState:_________", movies);
+  console.log("useState:_________", movies);
 
   useEffect(() => {
     const url = "https://api.themoviedb.org/3/movie/popular";
@@ -20,43 +20,40 @@ function MyList() {
     };
     const fetchMovies = async () => {
       const response = await fetch(url, options);
-      const newMovies = await response.json();
-      console.log("fetch:--------", newMovies);
+      const newMovies: IApiResponse = await response.json();
+      // console.log("Primeiro filme:", newMovies.results[0].original_title);
       setMovies(newMovies);
     };
-
-
-
 
     fetchMovies();
   }, []);
 
+  // const movieTitles =
+  //   movies?.results?.map((movie) => movie.original_title) || [];
+  // // console.log("log 2::::::::::::", movieTitles);
 
-//   const movieEntries = Object.entries(movies);
-// console.log("object.entries-movies:", movieEntries[2]);
+  // const movieRating = movies?.results?.map((movie) => movie.vote_average) || [];
+  // console.log("ratings...", movieRating);
 
-// const movieResults = Object.values(movieEntries);
-// console.log("object.values-movies:", movieResults);
-
-
-
-
-
+  const movieData =
+    movies?.results?.map((movie) => ({
+      title: movie.original_title,
+      rating: movie.vote_average,
+      image: movie.backdrop_path,
+    })) || [];
 
   return (
     <div>
-      <div className="movie-container">
-        <h2>mylist</h2>
-
-        <div className="movie-list">
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
+      <div className="movie-popular-container">
+        <h2>Popular</h2>
+        <div className="movie-list-grid">
+          {movieData?.map((movie) => (
+            <MovieCard
+              title={movie.title}
+              rating={movie.rating}
+              image={movie.image}
+            />
+          ))}
         </div>
       </div>
     </div>
