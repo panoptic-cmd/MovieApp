@@ -1,12 +1,13 @@
-import MovieCard from "../../components/MovieCard/MovieCard";
-import "./MyList.css";
+import MovieCard from "../MovieCard/MovieCard";
+import "./PopularList.css";
 import { useEffect, useState } from "react";
 import type { IApiResponse } from "../../types/MovieType";
+
 
 function MyList() {
   const [movies, setMovies] = useState<IApiResponse>();
 
-  console.log("useState:_________", movies);
+  console.log("useState:___MOVIES______", movies);
 
   useEffect(() => {
     const url = "https://api.themoviedb.org/3/movie/popular";
@@ -41,6 +42,9 @@ function MyList() {
       rating: movie.vote_average,
       image: movie.backdrop_path,
     })) || [];
+
+
+
 
   return (
     <div>

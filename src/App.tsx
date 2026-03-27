@@ -1,7 +1,8 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
-import MyList from "./components/MyList/MyList";
+import MyList from "./components/MyList/PopularList";
 import FeaturedFilms from "./components/Featured/Featured";
+import TvFetchTest from "./components/tvfetchtest/tvfetchtest";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       <div>
         <MyList />
       </div>
+
+      <div><TvFetchTest/></div>
     </div>
   );
 }
