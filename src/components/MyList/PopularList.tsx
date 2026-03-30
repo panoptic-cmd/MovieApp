@@ -1,16 +1,19 @@
 import MovieCard from "../MovieCard/MovieCard";
 import "./PopularList.css";
 import { useEffect, useState } from "react";
-import type { IApiResponse } from "../../types/MovieType";
-
+import type {
+  IApiResponseMovies,
+  IApiResponseSeries,
+} from "../../types/PopularType";
 
 function MyList() {
-  const [movies, setMovies] = useState<IApiResponse>();
+  const [movies, setMovies] = useState<IApiResponseMovies>();
+  const [series, setSeries] = useState<IApiResponseSeries>();
 
   console.log("useState:___MOVIES______", movies);
+  console.log("series_____", series);
 
   useEffect(() => {
-    const url = "https://api.themoviedb.org/3/movie/popular";
     const options = {
       method: "GET",
       headers: {
@@ -20,10 +23,15 @@ function MyList() {
       },
     };
     const fetchMovies = async () => {
-      const response = await fetch(url, options);
-      const newMovies: IApiResponse = await response.json();
+      const [responseMovies, responseSeries] = await Promise.all([
+        fetch("https://api.themoviedb.org/3/movie/popular", options),
+        fetch("https://api.themoviedb.org/3/tv/popular", options),
+      ]);
+      const newMovies: IApiResponseMovies = await responseMovies.json();
+      const newSeries: IApiResponseSeries = await responseSeries.json();
       // console.log("Primeiro filme:", newMovies.results[0].original_title);
       setMovies(newMovies);
+      setSeries(newSeries);
     };
 
     fetchMovies();
@@ -43,13 +51,17 @@ function MyList() {
       image: movie.backdrop_path,
     })) || [];
 
-
-
+  const seriesData =
+    series?.results?.map((series) => ({
+      title: series.name,
+      rating: series.vote_average,
+      image: series.backdrop_path,
+    })) || [];
 
   return (
     <div>
       <div className="movie-popular-container">
-        <h2>Popular</h2>
+        <h2>Popular Movies</h2>
         <div className="movie-list-grid">
           {movieData?.map((movie) => (
             <MovieCard
@@ -59,6 +71,19 @@ function MyList() {
             />
           ))}
         </div>
+        <div>
+          <h2>Popular Shows</h2>
+          <div className="movie-list-grid">
+            {seriesData?.map((series) => (
+              <MovieCard
+                title={series.title}
+                rating={series.rating}
+                image={series.image}
+              />
+            ))}
+          </div>
+        </div>
+        <div></div>
       </div>
     </div>
   );
