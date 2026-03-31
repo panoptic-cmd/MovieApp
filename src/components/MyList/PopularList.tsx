@@ -46,6 +46,8 @@ function MyList() {
 
   const movieData =
     movies?.results?.map((movie) => ({
+      id: movie.id,
+      type: "movie",
       title: movie.original_title,
       rating: movie.vote_average,
       image: movie.backdrop_path,
@@ -53,6 +55,8 @@ function MyList() {
 
   const seriesData =
     series?.results?.map((series) => ({
+      id: series.id,
+      type: "tv",
       title: series.name,
       rating: series.vote_average,
       image: series.backdrop_path,
@@ -65,6 +69,8 @@ function MyList() {
         <div className="movie-list-grid">
           {movieData?.map((movie) => (
             <MovieCard
+            id ={movie.id}
+        type="movie"
               title={movie.title}
               rating={movie.rating}
               image={movie.image}
@@ -76,6 +82,9 @@ function MyList() {
           <div className="movie-list-grid">
             {seriesData?.map((series) => (
               <MovieCard
+              id={series.id}
+              type="tv"
+            
                 title={series.title}
                 rating={series.rating}
                 image={series.image}

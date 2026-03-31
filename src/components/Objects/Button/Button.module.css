@@ -1,0 +1,40 @@
+.primary,
+.secondary {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.primary {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.secondary:hover {
+  background-color: #e2e6ea;
+  border-color: #ccc;
+  transform: translateY(-2px);
+}
+
+.primary span,
+.secondary span {
+  display: inline-block;
+  vertical-align: middle;
+}
