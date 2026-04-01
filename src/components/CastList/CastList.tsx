@@ -2,7 +2,7 @@ import styles from "./CastList.module.css";
 import ActorCard from "./ActorCard/ActorCard";
 import { useState, useEffect } from "react";
 
-interface CastMember {
+export interface CastMember {
   id: number;
   name: string;
   profile_path: string;
@@ -50,19 +50,17 @@ function CastList({ id, type }: CastListProps) {
     <div className={styles.container}>
       {cast.slice(0, 20).map((actor) => {
         // variaveis para os atores - se tem profile_path.
-        const actorName = actor.name;
-        const profileImg = actor.profile_path
-          ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
-          : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?_=20150327203541";
+        // const actorName = actor.name;
+        // const profileImg = actor.profile_path
+        //   ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
+        //   : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?_=20150327203541";
 
         // return do map
         return (
           <div>
             <ActorCard
               key={actor.id}
-              id={actor.id}
-              name={actorName}
-              image={profileImg}
+              actor={actor}
             />
           </div>
           // <div key={actor.id} className={styles.card}>
