@@ -59,12 +59,7 @@ function DetailsPage() {
           <div className="text-details">
             <p className="overview">{details.overview}</p>
             <span className="rating">⭐ {details.vote_average.toFixed(1)}</span>
-            <p className="date">
-              Data:{" "}
-              {"release_date" in details
-                ? details.release_date
-                : details.first_air_date}
-            </p>
+            
           </div>
         </div>
 
