@@ -1,10 +1,11 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import type { IMovie, ISeries } from "../../types/PopularType";
+import type { IMovie, ITv as ITv } from "../../types/PopularType";
+import CastList from "../../components/CastList/CastList";
 
 function DetailsPage() {
   const { id, type } = useParams();
-  const [details, setDetails] = useState<IMovie | ISeries | null>(null);
+  const [details, setDetails] = useState<IMovie | ITv | null>(null);
 
   console.log("details log:_____", details);
 
@@ -19,18 +20,18 @@ function DetailsPage() {
     };
 
     const fetchDetails = async () => {
-      try {
-        const apiType = type === "series" ? "tv" : "movie";
-        const url = await fetch(
-          `https://themoviedb.org/${apiType}/${id}`,
-          options,
-        );
-        if (!url.ok) throw new Error("Error");
-        const details = await url.json();
-        setDetails(details);
-      } catch (error) {
-        console.error("Errr", error);
-      }
+      //   try {
+
+      const url = await fetch(
+        `https://api.themoviedb.org/3/${type}/${id}`,
+        options,
+      );
+      // if (!url.ok) throw new Error("Error");
+      const details = await url.json();
+      setDetails(details);
+      //   } catch (error) {
+      //     console.error("Errr", error);
+      //   }
     };
 
     fetchDetails();
@@ -44,7 +45,10 @@ function DetailsPage() {
     <div className="details-container">
       {/* Imagem de fundo (Banner) */}
       <div className="backdrop">
-        <img src={`https://tmdb.org{details.backdrop_path}`} alt="Banner" />
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}
+          alt="Banner"
+        />
       </div>
 
       <div className="content">
@@ -52,7 +56,6 @@ function DetailsPage() {
         <h1>{"title" in details ? details.title : details.name}</h1>
 
         <div className="info">
-          <img src={`https://tmdb.org{details.poster_path}`} alt="Poster" />
           <div className="text-details">
             <p className="overview">{details.overview}</p>
             <span className="rating">⭐ {details.vote_average.toFixed(1)}</span>
@@ -63,6 +66,10 @@ function DetailsPage() {
                 : details.first_air_date}
             </p>
           </div>
+        </div>
+
+        <div className="castList">
+          <CastList id={id} type={type} />
         </div>
       </div>
     </div>

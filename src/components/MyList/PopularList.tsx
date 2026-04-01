@@ -3,12 +3,12 @@ import "./PopularList.css";
 import { useEffect, useState } from "react";
 import type {
   IApiResponseMovies,
-  IApiResponseSeries,
+  IApiResponseTv,
 } from "../../types/PopularType";
 
 function MyList() {
   const [movies, setMovies] = useState<IApiResponseMovies>();
-  const [series, setSeries] = useState<IApiResponseSeries>();
+  const [series, setSeries] = useState<IApiResponseTv>();
 
   console.log("useState:___MOVIES______", movies);
   console.log("series_____", series);
@@ -23,12 +23,12 @@ function MyList() {
       },
     };
     const fetchMovies = async () => {
-      const [responseMovies, responseSeries] = await Promise.all([
+      const [responseMovies, responseTv] = await Promise.all([
         fetch("https://api.themoviedb.org/3/movie/popular", options),
         fetch("https://api.themoviedb.org/3/tv/popular", options),
       ]);
       const newMovies: IApiResponseMovies = await responseMovies.json();
-      const newSeries: IApiResponseSeries = await responseSeries.json();
+      const newSeries: IApiResponseTv = await responseTv.json();
       // console.log("Primeiro filme:", newMovies.results[0].original_title);
       setMovies(newMovies);
       setSeries(newSeries);
@@ -54,12 +54,12 @@ function MyList() {
     })) || [];
 
   const seriesData =
-    series?.results?.map((series) => ({
-      id: series.id,
+    series?.results?.map((tv) => ({
+      id: tv.id,
       type: "tv",
-      title: series.name,
-      rating: series.vote_average,
-      image: series.backdrop_path,
+      title: tv.name,
+      rating: tv.vote_average,
+      image: tv.backdrop_path,
     })) || [];
 
   return (
@@ -80,14 +80,14 @@ function MyList() {
         <div>
           <h2>Popular Shows</h2>
           <div className="movie-list-grid">
-            {seriesData?.map((series) => (
+            {seriesData?.map((tv) => (
               <MovieCard
-              id={series.id}
+              id={tv.id}
               type="tv"
             
-                title={series.title}
-                rating={series.rating}
-                image={series.image}
+                title={tv.title}
+                rating={tv.rating}
+                image={tv.image}
               />
             ))}
           </div>
