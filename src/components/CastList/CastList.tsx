@@ -17,10 +17,8 @@ function CastList({ id, type }: CastListProps) {
   const [cast, setCast] = useState<CastMember[]>([]);
 
   console.log("cast_____", cast);
-  
-  console.log("actor index 7", cast[7]?.name)
 
-
+  console.log("actor index 7", cast[7]?.name);
 
   useEffect(() => {
     const options = {
@@ -38,37 +36,43 @@ function CastList({ id, type }: CastListProps) {
         options,
       );
       const castResponse = await response.json();
-      
-  if (castResponse && castResponse.cast) {
-    setCast(castResponse.cast); 
-  } else {
-    setCast([]); 
-  }
-};
+
+      if (castResponse && castResponse.cast) {
+        setCast(castResponse.cast);
+      } else {
+        setCast([]);
+      }
+    };
     fetchCast();
   }, [id, type]);
 
- 
   return (
-  <div className={styles.container}>
-    {cast.slice(0, 20).map((actor) => {
-      // variaveis para os atores - se tem profile_path.
-      const actorName = actor.name;
-      const profileImg = actor.profile_path 
-        ? `https://image.tmdb.org/t/p/w300${actor.profile_path}` 
-        : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?_=20150327203541";
+    <div className={styles.container}>
+      {cast.slice(0, 20).map((actor) => {
+        // variaveis para os atores - se tem profile_path.
+        const actorName = actor.name;
+        const profileImg = actor.profile_path
+          ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
+          : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?_=20150327203541";
 
         // return do map
-      return (
-        <div key={actor.id} className={styles.card}>
-          <img src={profileImg} alt={actorName} />
-          <span>{actorName}</span>
-        </div>
-      );
-    })}
-  </div>
-);
-
-};
+        return (
+          <div>
+            <ActorCard
+              key={actor.id}
+              id={actor.id}
+              name={actorName}
+              image={profileImg}
+            />
+          </div>
+          // <div key={actor.id} className={styles.card}>
+          //   <img src={profileImg} alt={actorName} />
+          //   <span>{actorName}</span>
+          // </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default CastList;
