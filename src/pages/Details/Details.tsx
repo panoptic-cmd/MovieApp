@@ -2,6 +2,8 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import type { IMovie, ITv as ITv } from "../../types/PopularType";
 import CastList from "../../components/CastList/CastList";
+import Banner from "../../components/BannerDetailsPage/Banner";
+import Synopsis from "../../components/SynopsisDetailsPage/Synopsis";
 
 function DetailsPage() {
   const { id, type } = useParams();
@@ -41,10 +43,16 @@ function DetailsPage() {
     return <div className="loading">loading</div>;
   }
 
+  // const runtimeValue = "runtime" in details
+  // ? details.runtime
+  // : details.episode_run_time?.[0];
+
   return (
     <div className="details-container">
       {/* Imagem de fundo (Banner) */}
+
       <div className="backdrop">
+        {/* <Banner runtime={runtimeValue} image={details.backdrop_path}/> */}
         <img
           src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}
           alt="Banner"
@@ -59,7 +67,6 @@ function DetailsPage() {
           <div className="text-details">
             <p className="overview">{details.overview}</p>
             <span className="rating">⭐ {details.vote_average.toFixed(1)}</span>
-            
           </div>
         </div>
 
