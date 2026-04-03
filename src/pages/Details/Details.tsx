@@ -1,13 +1,17 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import type { IMovie, ITv as ITv } from "../../types/PopularType";
+// import type { IMovie, ITv as ITv } from "../../types/PopularType";
+import type { IMovieDetails, ITvDetails } from "../../types/MediaDetails";
 import CastList from "../../components/CastList/CastList";
 import Banner from "../../components/BannerDetailsPage/Banner";
-import Synopsis from "../../components/SynopsisDetailsPage/Synopsis";
+import Synopsis from "../../components/Synopsis/Synopsis";
+import ChipSection from "../../components/ChipSection/ChipSection";
 
 function DetailsPage() {
   const { id, type } = useParams();
-  const [details, setDetails] = useState<IMovie | ITv | null>(null);
+  const [details, setDetails] = useState<IMovieDetails | ITvDetails | null>(
+    null,
+  );
 
   console.log("details log:_____", details);
 
@@ -43,9 +47,10 @@ function DetailsPage() {
     return <div className="loading">loading</div>;
   }
 
-  // const runtimeValue = "runtime" in details
-  // ? details.runtime
-  // : details.episode_run_time?.[0];
+  const runtimeValue =
+    "runtime" in details ? details.runtime : details.episode_run_time?.[0];
+
+    const mediaName = "title" in details ? details.title : details.name;
 
   return (
     <div className="details-container">
@@ -53,22 +58,29 @@ function DetailsPage() {
 
       <div className="backdrop">
         {/* <Banner runtime={runtimeValue} image={details.backdrop_path}/> */}
-        <img
+        {/* <img
           src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}
           alt="Banner"
+        /> */}
+
+        <Banner image={details.backdrop_path} runtime={runtimeValue} />
+      </div>
+
+      <div id="ChipSection">
+        <ChipSection
+          adult={details.adult}
+          genres={details.genres}
+          rating={details.vote_average}
+          runtime={runtimeValue}
+          origin={details.origin_country}
         />
+
       </div>
 
       <div className="content">
-        {/* Título dinâmico */}
-        <h1>{"title" in details ? details.title : details.name}</h1>
 
-        <div className="info">
-          <div className="text-details">
-            <p className="overview">{details.overview}</p>
-            <span className="rating">⭐ {details.vote_average.toFixed(1)}</span>
-          </div>
-        </div>
+        <Synopsis title={mediaName} synopsis={details.overview}  />
+       
 
         <div className="castList">
           <CastList id={id} type={type} />

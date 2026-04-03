@@ -1,0 +1,31 @@
+.button {
+ 
+  position: absolute;
+  
+  
+  top: 50%;
+  left: 50%;
+  
+  
+  transform: translate(-50%, -50%);
+  
+  
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  z-index: 10; /* Garante que fica acima da imagem e do fade */
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%) scale(1.1);
+}

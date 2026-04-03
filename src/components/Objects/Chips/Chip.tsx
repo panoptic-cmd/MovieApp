@@ -1,17 +1,16 @@
 import styles from "./Chip.module.css";
-import type { ReactNode } from "react";
+
 
 interface IChip {
   variant: "primary" | "secondary";
-  id: string;
-  label: string;
-  children: ReactNode;
+  id?: string;
+  label: React.ReactNode;
 }
 
-function Chip({ variant, id, label, children }: IChip) {
+function Chip({ variant, id, label }: IChip) {
   return (
-    <div id={id} className={styles[variant]}>
-      {children}
+    <div id={id} className={`${styles.chip} ${styles[variant]}`}>
+      
       <span>{label}</span>
     </div>
   );

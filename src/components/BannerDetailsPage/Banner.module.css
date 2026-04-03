@@ -1,0 +1,42 @@
+.bannerWrapper {
+  position: relative;
+  width: 90%;          /* Um pouco menor que o ecrã total */
+  max-width: 1000px;   /* Limita o tamanho para não ficar gigante em ecrãs grandes */
+  margin: 0 auto;      /* Centraliza o banner na página */
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerWrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* O gradiente que faz a imagem desaparecer no fundo preto */
+.bannerWrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Altura do efeito de fade */
+  background: linear-gradient(to top, #121212 0%, transparent 100%);
+  pointer-events: none; /* Garante que consegues clicar no que está por baixo */
+}
+
+/* Ajuste da tag de tempo para não ficar "comida" pelo fade */
+.runtimeTag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 15; /* Acima do fade */
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

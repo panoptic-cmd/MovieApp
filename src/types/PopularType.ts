@@ -15,6 +15,7 @@ export interface ITv {
   poster_path: string;
   vote_average: number;
   vote_count: number;
+  
 }
 
 export interface IMovie {
@@ -32,6 +33,7 @@ export interface IMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  
 }
 
 export type IApiResponseMovies = {

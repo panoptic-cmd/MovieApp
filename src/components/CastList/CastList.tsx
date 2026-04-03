@@ -16,9 +16,9 @@ interface CastListProps {
 function CastList({ id, type }: CastListProps) {
   const [cast, setCast] = useState<CastMember[]>([]);
 
-  console.log("cast_____", cast);
+  // console.log("cast_____", cast);
 
-  console.log("actor index 7", cast[7]?.name);
+  // console.log("actor index 7", cast[7]?.name);
 
   useEffect(() => {
     const options = {
