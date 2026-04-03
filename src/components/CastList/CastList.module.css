@@ -1,17 +1,31 @@
-.container {
+.sectionContainer {
+  width: 90%;
+  max-width: 1100px; /* Alinha com a largura do teu Banner */
+  margin: 60px auto 0 auto; /* Mais espaço da sinopse */
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  overflow-x: auto; /* Permite scroll horizontal */
-  padding: 20px 0;
-  scrollbar-width: thin; /* Para browsers modernos */
+  flex-direction: column;
 }
 
-/* Esconder a scrollbar se quiseres um look mais limpo (opcional) */
-.container::-webkit-scrollbar {
-  height: 6px;
+.title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 24px;
 }
-.container::-webkit-scrollbar-thumb {
-  background: #444;
-  border-radius: 10px;
+
+.castGrid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto; /* Scroll horizontal se houver muitos atores */
+  padding-bottom: 15px;
+  scrollbar-width: none; /* Esconde scrollbar no Firefox */
+}
+
+.castGrid::-webkit-scrollbar {
+  display: none; /* Esconde scrollbar no Chrome/Safari */
+}
+
+.cardWrapper {
+  flex: 0 0 120px; /* Define a largura fixa de cada foto de ator */
 }

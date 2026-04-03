@@ -47,17 +47,18 @@ function CastList({ id, type }: CastListProps) {
   }, [id, type]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.sectionContainer}>
+      <h2 className={styles.title}>Cast</h2>
+      <div className={styles.castGrid}>
       {cast.slice(0, 20).map((actor) => {
         // variaveis para os atores - se tem profile_path.
         // const actorName = actor.name;
         // const profileImg = actor.profile_path
         //   ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
         //   : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?_=20150327203541";
-
         // return do map
         return (
-          <div>
+          <div key={actor.id} className={styles.cardWrapper}>
             <ActorCard
               key={actor.id}
               actor={actor}
@@ -69,6 +70,7 @@ function CastList({ id, type }: CastListProps) {
           // </div>
         );
       })}
+      </div>
     </div>
   );
 }
