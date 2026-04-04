@@ -1,6 +1,7 @@
 import styles from "./CastList.module.css";
 import ActorCard from "./ActorCard/ActorCard";
 import { useState, useEffect } from "react";
+import Pagination from "../../assets/pagination/Pagination"
 
 export interface CastMember {
   id: number;
@@ -15,6 +16,25 @@ interface CastListProps {
 
 function CastList({ id, type }: CastListProps) {
   const [cast, setCast] = useState<CastMember[]>([]);
+//
+  const [activeIndex, setActiveIndex] = useState(0);
+//pagination component variable
+  const totalItems = cast.slice(0, 15).length;
+
+
+  
+  //
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+  const container = e.currentTarget;
+  // Calcula qual o item que está mais ao centro/início do scroll
+  const scrollPosition = container.scrollLeft;
+  const itemWidth = 136; // Largura do ActorCard (ex: 120px + 16px gap)
+  
+  const newIndex = Math.round(scrollPosition / itemWidth);
+  if (newIndex !== activeIndex) {
+    setActiveIndex(newIndex);
+  }
+};
 
   // console.log("cast_____", cast);
 
@@ -49,7 +69,7 @@ function CastList({ id, type }: CastListProps) {
   return (
     <div className={styles.sectionContainer}>
       <h2 className={styles.title}>Cast</h2>
-      <div className={styles.castGrid}>
+      <div className={styles.castGrid} onScroll={handleScroll}>
       {cast.slice(0, 20).map((actor) => {
         // variaveis para os atores - se tem profile_path.
         // const actorName = actor.name;
@@ -71,6 +91,7 @@ function CastList({ id, type }: CastListProps) {
         );
       })}
       </div>
+      <Pagination total={totalItems} activeIndex={activeIndex}/>
     </div>
   );
 }

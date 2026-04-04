@@ -7,8 +7,8 @@
 }
 
 .card img {
-  width: 120px;      /* Imagem pequena */
-  height: 180px;     /* Proporção de poster de ator */
+  width: 100px;      /* Imagem pequena */
+  height: 160px;     /* Proporção de poster de ator */
   object-fit: cover; /* Não distorce a imagem */
   border-radius: 8px;
   margin-bottom: 8px;

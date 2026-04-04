@@ -1,6 +1,6 @@
 .sectionContainer {
   width: 90%;
-  max-width: 1100px; /* Alinha com a largura do teu Banner */
+  max-width: 1000px; /* Alinha com a largura do teu Banner */
   margin: 60px auto 0 auto; /* Mais espaço da sinopse */
   display: flex;
   flex-direction: column;
