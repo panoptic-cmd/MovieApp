@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #121212;
+  position: relative;
+  z-index: 100;
+}
+
+.menuButton {
+  background-color: rgba(255, 255, 255, 0.1); /* Cinza claro semi-transparente */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda muito fina */
+  border-radius: 8px; /* Cantos arredondados como o resto do teu site */
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.1s active;
+  outline: none;
+}
+
+.menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Brilha um pouco mais no hover */
+}
+
+.menuButton:active {
+  transform: scale(0.95); /* Efeito de clique */
+}
+
+/* Garante que o ícone lá dentro fica branco */
+.menuButton svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}

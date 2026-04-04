@@ -1,15 +1,15 @@
 import SearchIcon from "./SearchIcon";
-import "./SearchBar.css";
+import styles from "./SearchBar.module.css";
 
 function SearchBar() {
   return (
     <div>
-      <div className="search-container">
-        <div className="icon">
+      <div className={styles.searchContainer}>
+        <div className={styles.icon}>
           <SearchIcon size={24} />
         </div>
 
-        <input type="text" placeholder="Search" className="search-bar" />
+        <input type="text" placeholder="Search" className= {styles.searchBar} />
       </div>
     </div>
   );

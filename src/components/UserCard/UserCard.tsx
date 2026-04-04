@@ -6,8 +6,8 @@ function UserCard() {
       <div className="user-card-thumbnail"></div>
       <div className="user-card-info">
         
-        <span>welcomeback</span>
-        <span>username</span>
+        <span>Welcome Back</span>
+        <span>User Name</span>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const Synopsis = ({ title, synopsis }: ISynopsis) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const textLimit = 100;
+  const textLimit = 150;
   const isLongText = synopsis?.length > textLimit;
 
   // Texto que será exibido

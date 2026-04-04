@@ -39,7 +39,7 @@ function ChipSection({ adult, genres, rating, origin }: ChipSectionProps) {
         <Chip id={"origin"} variant={"secondary"} label={origin} />
       ))}
 
-<HeartButton size={16} initialFavorite={false}/>
+<HeartButton size={24} initialFavorite={false}/>
     </div>
   );
 }

@@ -1,0 +1,54 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  position: relative; 
+  width: 100%;
+  /* Aumentado para os lados como pediste */
+  max-width: 300px; 
+  /* Centraliza na página */
+  margin: 40px auto; 
+}
+
+.searchBar {
+  width: 100%;
+  height: 48px;
+  /* Padding esquerdo maior para não bater no ícone */
+  padding: 0 1rem 0 3.2rem; 
+  
+  /* Borda fina e subtil */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  outline: none;
+  
+  /* Cor de fundo: ligeiramente mais clara que o fundo da página (#121212) */
+  background-color: #1e1e1f; 
+  
+  /* Cor do texto que o utilizador escreve */
+  color: #ffffff; 
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao clicar na barra */
+.search-bar:focus {
+  background-color: #252526;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+  position: absolute;
+  left: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; 
+  z-index: 2; 
+  
+  /* Ícone a preto como pediste */
+  color: #000000; 
+}
+
+/* Se o ícone for um SVG com stroke, forçamos o preto aqui */
+.icon svg {
+  stroke: #ffffff;
+}

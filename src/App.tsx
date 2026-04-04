@@ -1,5 +1,5 @@
-import "./App.css";
-import NavBar from "./components/NavBar/NavBar";
+import styles from "./App.module.css"
+import SearchBar from "./components/Search/SearchBar";
 import MyList from "./components/MyList/PopularList";
 import FeaturedFilms from "./components/Featured/Featured";
 import TvFetchTest from "./components/tvfetchtest/tvfetchtest";
@@ -7,10 +7,10 @@ import TvFetchTest from "./components/tvfetchtest/tvfetchtest";
 function App() {
   return (
     <div>
-      <div>
-        <NavBar />
+      
+      <div className="searchbar">
+        <SearchBar />
       </div>
-
       <div>
         <FeaturedFilms />
       </div>
