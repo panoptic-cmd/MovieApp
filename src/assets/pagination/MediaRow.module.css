@@ -1,0 +1,21 @@
+.viewport {
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+
+  touch-action: pan-y;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+ 
+  width: max-content; 
+}
+
+.slide {
+
+  flex: 0 0 auto;
+  min-width: 0;
+  padding-right: 20px;
+}

@@ -2,10 +2,11 @@ import SearchBar from "../Search/SearchBar";
 import UserCard from "../UserCard/UserCard";
 import MenuIcon from "./MenuIcon";
 import styles from "./NavBar.module.css";
-import {useState} from 'react';
+import { useState } from "react";
+import { Link } from "react-router";
 
 function NavBar() {
-const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,18 +16,18 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div>
       <div className={styles.navbar}>
-        <div className={styles.usercard}>
-          <UserCard />
-        </div>
+        <Link to="/">
+          <div className={styles.usercard}>
+            <UserCard />
+          </div>
+        </Link>
 
-        <div  >
+        <div>
           <button className={styles.menuButton} onClick={toggleMenu}>
-          <MenuIcon size={28} />
+            <MenuIcon size={28} />
           </button>
-          
         </div>
       </div>
-      
     </div>
   );
 }

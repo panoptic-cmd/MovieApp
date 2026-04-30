@@ -1,13 +1,12 @@
-import styles from "./App.module.css"
+import styles from "./App.module.css";
 import SearchBar from "./components/Search/SearchBar";
-import MyList from "./components/MyList/PopularList";
-import FeaturedFilms from "./components/Featured/Featured";
+import PopularList from "./components/MyList/PopularList";
+import FeaturedFilms from "./components/FeaturedSection/Featured";
 import TvFetchTest from "./components/tvfetchtest/tvfetchtest";
 
 function App() {
   return (
     <div>
-      
       <div className="searchbar">
         <SearchBar />
       </div>
@@ -16,10 +15,12 @@ function App() {
       </div>
 
       <div>
-        <MyList />
+        <PopularList />
       </div>
 
-      <div><TvFetchTest/></div>
+      <div>
+        <TvFetchTest />
+      </div>
     </div>
   );
 }

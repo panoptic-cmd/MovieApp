@@ -13,7 +13,7 @@ function DetailsPage() {
     null,
   );
 
-  console.log("details log:_____", details);
+  // console.log("details log:_____", details);
 
   useEffect(() => {
     const options = {
@@ -50,7 +50,7 @@ function DetailsPage() {
   const runtimeValue =
     "runtime" in details ? details.runtime : details.episode_run_time?.[0];
 
-    const mediaName = "title" in details ? details.title : details.name;
+  const mediaName = "title" in details ? details.title : details.name;
 
   return (
     <div className="details-container">
@@ -74,13 +74,10 @@ function DetailsPage() {
           runtime={runtimeValue}
           origin={details.origin_country}
         />
-
       </div>
 
       <div className="content">
-
-        <Synopsis title={mediaName} synopsis={details.overview}  />
-       
+        <Synopsis title={mediaName} synopsis={details.overview} />
 
         <div className="castList">
           <CastList id={id} type={type} />

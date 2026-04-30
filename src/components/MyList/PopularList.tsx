@@ -1,17 +1,17 @@
 import MovieCard from "../MovieCard/MovieCard";
-import "./PopularList.css";
+import styles from "./PopularList.module.css";
 import { useEffect, useState } from "react";
 import type {
   IApiResponseMovies,
   IApiResponseTv,
 } from "../../types/PopularType";
 
-function MyList() {
+function PopularList() {
   const [movies, setMovies] = useState<IApiResponseMovies>();
   const [series, setSeries] = useState<IApiResponseTv>();
 
-  console.log("useState:___MOVIES______", movies);
-  console.log("series_____", series);
+  // console.log("useState:___MOVIES______", movies);
+  // console.log("series_____", series);
 
   useEffect(() => {
     const options = {
@@ -64,33 +64,36 @@ function MyList() {
 
   return (
     <div>
-      <div className="movie-popular-container">
-        <h2>Popular Movies</h2>
-        <div className="movie-list-grid">
-          {movieData?.map((movie) => (
-            <MovieCard
-            id ={movie.id}
-        type="movie"
-              title={movie.title}
-              rating={movie.rating}
-              image={movie.image}
-            />
-          ))}
-        </div>
-        <div>
-          <h2>Popular Shows</h2>
-          <div className="movie-list-grid">
-            {seriesData?.map((tv) => (
+      <div className={styles.rowContainer}>
+        <section>
+          <h2 className={styles.rowTitle}>Popular Movies</h2>
+          <div className={styles.movieList}>
+            {movieData?.map((movie) => (
               <MovieCard
-              id={tv.id}
-              type="tv"
-            
-                title={tv.title}
-                rating={tv.rating}
-                image={tv.image}
+                id={movie.id}
+                type="movie"
+                title={movie.title}
+                rating={movie.rating}
+                image={movie.image}
               />
             ))}
           </div>
+        </section>
+        <div>
+          <section>
+            <h2 className={styles.rowTitle}>Popular Shows</h2>
+            <div className={styles.movieList}>
+              {seriesData?.map((tv) => (
+                <MovieCard
+                  id={tv.id}
+                  type="tv"
+                  title={tv.title}
+                  rating={tv.rating}
+                  image={tv.image}
+                />
+              ))}
+            </div>
+          </section>
         </div>
         <div></div>
       </div>
@@ -98,4 +101,4 @@ function MyList() {
   );
 }
 
-export default MyList;
+export default PopularList;

@@ -12,12 +12,11 @@
   height: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
+  transition: all 0.3s;
 }
 
-/* O "Ponto" ativo transforma-se numa pílula roxa/azul como na tua imagem */
 .active {
-  width: 24px; /* Estica o ponto */
-  background-color: #5a57cb; /* Cor roxa da imagem */
+  width: 24px; 
+  background-color: #5a57cb; 
   border-radius: 10px;
 }

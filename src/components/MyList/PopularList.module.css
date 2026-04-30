@@ -1,0 +1,35 @@
+.rowContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 8%;
+
+}
+
+.rowTitle {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+ 
+  padding-left: 12px;
+  margin: 1.5rem;
+text-transform: uppercase;
+}
+
+.movieList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0 20px 0;
+  scrollbar-width: none; 
+}
+
+
+.movieList::-webkit-scrollbar {
+  display: none;
+}
+
+

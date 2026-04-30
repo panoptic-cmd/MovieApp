@@ -1,4 +1,4 @@
-/* Estilo base para todos os chips */
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -13,12 +13,12 @@
   backdrop-filter: blur(4px);
 }
 
-/* Variante Escura */
+
 .primary {
-  background-color: #2b2b2d; /* Cinzento muito escuro sólido */
+  background-color: #2b2b2d; 
 }
 
-/* Variante Ligeiramente mais clara */
+
 .secondary {
-  background-color: #444446; /* Cinzento médio */
+  background-color: #444446; 
 }

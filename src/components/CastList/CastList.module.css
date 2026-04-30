@@ -1,7 +1,7 @@
 .sectionContainer {
   width: 90%;
-  max-width: 1000px; /* Alinha com a largura do teu Banner */
-  margin: 60px auto 0 auto; /* Mais espaço da sinopse */
+  max-width: 1000px; 
+  margin: 60px auto 0 auto; 
   display: flex;
   flex-direction: column;
 }
@@ -17,15 +17,15 @@
 .castGrid {
   display: flex;
   gap: 16px;
-  overflow-x: auto; /* Scroll horizontal se houver muitos atores */
+  overflow-x: auto; 
   padding-bottom: 15px;
-  scrollbar-width: none; /* Esconde scrollbar no Firefox */
+  scrollbar-width: none; 
 }
 
 .castGrid::-webkit-scrollbar {
-  display: none; /* Esconde scrollbar no Chrome/Safari */
+  display: none;
 }
 
 .cardWrapper {
-  flex: 0 0 120px; /* Define a largura fixa de cada foto de ator */
+  flex: 0 0 120px; 
 }

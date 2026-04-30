@@ -1,4 +1,4 @@
-import "../MovieCard/MovieCard.css";
+import styles from "../MovieCard/MovieCard.module.css";
 import {Link} from 'react-router'
 
 interface IMovieCardProps {
@@ -12,10 +12,10 @@ function MovieCard({ id, type, title, rating, image }: IMovieCardProps) {
   return (
     <div>
        <Link to={`/details/${type}/${id}`} style={{ textDecoration: 'none' }}>
-      <div className="movieCard-container">
+      <div className={styles.movieCardContainer}>
         <img src={`https://image.tmdb.org/t/p/w300${image}`} alt={title} />
         <span>{title} </span>
-        <span> {rating}</span>
+        <span> {rating.toFixed(1)}</span>
       </div>
       </Link>
     </div>

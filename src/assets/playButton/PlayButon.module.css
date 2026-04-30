@@ -21,7 +21,7 @@
   justify-content: center;
   cursor: pointer;
   color: white;
-  z-index: 10; /* Garante que fica acima da imagem e do fade */
+  z-index: 10; 
   transition: all 0.2s ease-in-out;
 }
 

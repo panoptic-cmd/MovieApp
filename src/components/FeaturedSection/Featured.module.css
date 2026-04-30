@@ -1,0 +1,102 @@
+.featuredContainer {
+ 
+  display: flex;
+  flex-direction: row;
+  
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  
+ 
+  gap: 20px;
+  padding: 20px 0;
+  padding: 0 8%;
+  
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.featuredContainer::-webkit-scrollbar {
+  display: outside;
+}
+.featuredContainer {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+
+.featuredFilm {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; 
+  gap: 20px;        
+  padding: 10px 0;
+  
+ 
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth;
+  
+  
+  scrollbar-width: none; 
+}
+
+.featuredFilm::-webkit-scrollbar {
+  display: none; 
+}
+
+
+.filterBar{
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 8px;
+padding: 20px;
+
+}
+
+.filterBar h2{
+
+margin-right: 1.5rem;
+text-transform: uppercase;
+
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px; 
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .filterBar {
+    flex-direction: column; 
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .filterBar h2 {
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+
+  .featuredFilm {
+    gap: 10px;
+    padding: 10px 5%; 
+  }
+
+  .rowTitle {
+    font-size: 1.1rem;
+    padding-left: 5%;
+  }
+
+  .movieList {
+    padding: 10px 5%;
+  }
+}

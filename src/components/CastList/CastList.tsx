@@ -1,7 +1,7 @@
 import styles from "./CastList.module.css";
 import ActorCard from "./ActorCard/ActorCard";
 import { useState, useEffect } from "react";
-import Pagination from "../../assets/pagination/Pagination"
+import Pagination from "../../assets/pagination/HorizontalScroll"
 
 export interface CastMember {
   id: number;
@@ -18,17 +18,16 @@ function CastList({ id, type }: CastListProps) {
   const [cast, setCast] = useState<CastMember[]>([]);
 //
   const [activeIndex, setActiveIndex] = useState(0);
-//pagination component variable
+//pagination component variable??
   const totalItems = cast.slice(0, 15).length;
 
 
   
-  //
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-  const container = e.currentTarget;
-  // Calcula qual o item que está mais ao centro/início do scroll
+  // qul é a posiçao do scroll?
+  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
+  const container = event.currentTarget;
   const scrollPosition = container.scrollLeft;
-  const itemWidth = 136; // Largura do ActorCard (ex: 120px + 16px gap)
+  const itemWidth = 136; 
   
   const newIndex = Math.round(scrollPosition / itemWidth);
   if (newIndex !== activeIndex) {
@@ -70,7 +69,7 @@ function CastList({ id, type }: CastListProps) {
     <div className={styles.sectionContainer}>
       <h2 className={styles.title}>Cast</h2>
       <div className={styles.castGrid} onScroll={handleScroll}>
-      {cast.slice(0, 20).map((actor) => {
+      {cast.slice(0, 21).map((actor) => {
         // variaveis para os atores - se tem profile_path.
         // const actorName = actor.name;
         // const profileImg = actor.profile_path
